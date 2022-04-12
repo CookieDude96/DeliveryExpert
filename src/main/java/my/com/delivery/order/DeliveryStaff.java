@@ -26,6 +26,6 @@ public class DeliveryStaff {
 	}
 	
 	public String toString() {
-		return "Delivery Staff: " + deliveryStaffName + "," + deliveryStaffNum;
+		return deliveryStaffName + "," + deliveryStaffNum;
 	}
 }

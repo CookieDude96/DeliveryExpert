@@ -1,90 +1,82 @@
 package my.com.delivery.deliveryNote;
 
 import my.com.delivery.order.Order;
-import my.com.delivery.user.User;
+import my.com.delivery.order.OrderDAO;
 
 public class DisplayInfo {
-	private Order order;
-	//String name = order.getUser.getName();
-	//String phoneNum = order.getUser.getPhoneNum();
-	//String email = order.getUser.getEmail();
 	
-	//int orderID = order.getOrderID();
-	String date = order.getsDate1();
-	String pickupAddress = order.getPaddress();
-	String deliveryAddress = order.getDaddress();
-	String item = order.getItem();
-	double weight = order.getweight();
-	double distance = order.getdistance();
-	boolean sameDayDelivery = order.getSameDayDelivery();
-	boolean insurance = order.getInsurance();
-	double finalCharge = order.getfinal_total();
-
-	String staffName = order.getStaff().getDeliveryStaffName();
-	String staffNum = order.getStaff().getDeliveryStaffNum();
+	OrderDAO od = new OrderDAO();	
+	private Order order;
 	
 
 	public void print(int orderID) {
+		order = od.getOrder(orderID);
+		
 		System.out.println("-----Customer Detail-----");
-		//System.out.println("Name: " + name);
-        //System.out.println("Phone Number: " + phoneNum);
+		System.out.println("Name: " + order.getUser().getName());
+        System.out.println("Phone Number: " + order.getUser().getPhoneNum());
+        System.out.println("Email: " + order.getUser().getEmail());
 
 		System.out.println("-----Order Detail-----");
-		System.out.println("Delivery Date: " + date);
-        System.out.println("Pickup Address: " + pickupAddress);
-        System.out.println("Delivery Address: " + deliveryAddress);
-        System.out.println("Item Type: " + item);
-        System.out.println("Item Weight: " + weight + " g");
-        System.out.println("Distance: " + distance + " km");
+		System.out.println("Order ID: " + order.getOrderID());
+		System.out.println("Delivery Date: " + order.getsDate1());
+        System.out.println("Pickup Address: " + order.getPaddress());
+        System.out.println("Delivery Address: " + order.getDaddress());
+        System.out.println("Item Type: " + order.getItem());
+        System.out.println("Item Weight: " + order.getweight() + " g");
+        System.out.println("Distance: " + order.getdistance() + " km");
 
-        if (sameDayDelivery) {
+        if (order.getSameDayDelivery()) {
             System.out.println("Same Day Delivery: Yes");
         } else {
             System.out.println("Same Day Delivery: No");
         }
 
-        if (insurance) {
+        if (order.getInsurance()) {
             System.out.println("Insurance: Yes");
         } else {
             System.out.println("Insurance: No");
         }
-        System.out.println("Final Charge: RM" + finalCharge);
+        System.out.println("Final Charge: RM" + order.getfinal_total());
 
 		System.out.println("-----Delivery Staff-----");
-		System.out.println("Name: " + staffName);
-		System.out.println("Phone Number" + staffNum);	
+		System.out.println("Name: " + order.getStaff().getDeliveryStaffName());
+		System.out.println("Phone Number: " + order.getStaff().getDeliveryStaffNum());	
 	}
 
 	public void email(int orderID) {
+		order = od.getOrder(orderID);
+		
 		System.out.println("-----Customer Detail-----");
-		//System.out.println("Name: " + name);
-        //System.out.println("Phone Number: " + phoneNum);
-		//System.out.println("Email: " + email);
+		System.out.println("Name: " + order.getUser().getName());
+        System.out.println("Phone Number: " + order.getUser().getPhoneNum());
+        System.out.println("Email: " + order.getUser().getEmail());
 
 		System.out.println("-----Order Detail-----");
-		System.out.println("Delivery Date: " + date);
-        System.out.println("Pickup Address: " + pickupAddress);
-        System.out.println("Delivery Address: " + deliveryAddress);
-        System.out.println("Item Type: " + item);
-        System.out.println("Item Weight: " + weight + " g");
-        System.out.println("Distance: " + distance + " km");
+		System.out.println("Order ID: " + order.getOrderID());
+		System.out.println("Delivery Date: " + order.getsDate1());
+        System.out.println("Pickup Address: " + order.getPaddress());
+        System.out.println("Delivery Address: " + order.getDaddress());
+        System.out.println("Item Type: " + order.getItem());
+        System.out.println("Item Weight: " + order.getweight() + " g");
+        System.out.println("Distance: " + order.getdistance() + " km");
 
-        if (sameDayDelivery) {
+        if (order.getSameDayDelivery()) {
             System.out.println("Same Day Delivery: Yes");
         } else {
             System.out.println("Same Day Delivery: No");
         }
 
-        if (insurance) {
+        if (order.getInsurance()) {
             System.out.println("Insurance: Yes");
         } else {
             System.out.println("Insurance: No");
         }
-        System.out.println("Final Charge: RM" + finalCharge);
+        System.out.println("Final Charge: RM" + order.getfinal_total());
 
 		System.out.println("-----Delivery Staff-----");
-		System.out.println("Name: " + staffName);
-		System.out.println("Phone Number" + staffNum);	
+		System.out.println("Name: " + order.getStaff().getDeliveryStaffName());
+		System.out.println("Phone Number: " + order.getStaff().getDeliveryStaffNum());
 	}
 	
 }

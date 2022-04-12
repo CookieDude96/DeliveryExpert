@@ -4,7 +4,7 @@ import my.com.delivery.user.User;
 
 public class Order {
 
-    //orderID
+    private int orderID;
     private String sDate1;
     private String Paddress;
     private boolean sameDayDelivery;
@@ -15,12 +15,15 @@ public class Order {
     private String item;
     private double weight;
     private double distance;
-	private DeliveryStaff staff;
 	private User user;
+	private DeliveryStaff staff;
 
-    public Order(String sDate1, String Paddress, String Daddress, boolean sameDayDelivery, boolean insurance, int Pcode,
-            int Dcode, String item, double weight, double distance) {
-
+    public Order(int orderID, String sDate1, String Paddress, 
+    		String Daddress, boolean sameDayDelivery, boolean insurance, int Pcode,
+            int Dcode, String item, double weight, double distance, User user, 
+            DeliveryStaff staff) {
+    	
+    	this.orderID = orderID;
         this.sDate1 = sDate1;
         this.Paddress = Paddress;
         this.Daddress = Daddress;
@@ -31,9 +34,13 @@ public class Order {
         this.item = item;
         this.weight = weight;
         this.distance = distance;
-		this.user = null; // how to attach user to order
-        this.staff = null;
+		this.user = user;
+		this.staff = staff;
     }
+    
+    public int getOrderID() {
+		return orderID;
+	}
 
     public String getsDate1() {
         return sDate1;
@@ -82,37 +89,23 @@ public class Order {
         return finalCharge;
     }
 
-    // getter for user
-    // public getter & setter for delivery stuff
-    public DeliveryStaff getStaff(){
-        return staff;
+    public User getUser(){
+        return user;
     }
+    
+    public DeliveryStaff getStaff() {
+    	return staff;
+    }
+    
 
-    public void setStaff(DeliveryStaff staff){
-        this.staff = staff;
-    }
 
     public String toString() {     
-        System.out.println("Delivery Date: " + sDate1);
-        System.out.println("Pickup Address: " + Paddress);
-        System.out.println("Delivery Address: " + Daddress);
-        System.out.println("Item Type: " + item);
-        System.out.println("Item Weight: " + weight + " g");
-        System.out.println("Distance: " + distance + " km");
+    	return orderID + ", " + sDate1 + ", " +  Paddress + ", " 
+    			+ Daddress + ", " + sameDayDelivery + ", " 
+    			+ insurance + ", " + Pcode + ", " + Dcode + ", " 
+    			+ item + ", " + weight + ", " + distance + ", " 
+    			+ user.getPhoneNum() + ", "+ staff.getDeliveryStaffNum();
 
-        if (sameDayDelivery) {
-            System.out.println("Same Day Delivery: Yes");
-        } else {
-            System.out.println("Same Day Delivery: No");
-        }
-
-        if (insurance) {
-            System.out.println("Insurance: Yes");
-        } else {
-            System.out.println("Insurance: No");
-        }
-        System.out.println("Final Charge: RM" + getfinal_total());
-
-		return null;
     }
+
 }
