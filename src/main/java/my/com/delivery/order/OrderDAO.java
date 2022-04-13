@@ -20,9 +20,9 @@ public class OrderDAO {
 	Scanner scanner = new Scanner(System.in);
 	UserDAO userDAO = new UserDAO();
 	DeliveryStaffDAO deliveryStaffDAO = new DeliveryStaffDAO();
-	
-	List <User> userList = userDAO.getAllUsers();
-	List <Order> orders = new ArrayList<>();
+
+	List<User> userList = userDAO.getAllUsers();
+	List<Order> orders = new ArrayList<>();
 
 	public void newOrder() {
 		System.out.println("***********************************");
@@ -31,15 +31,15 @@ public class OrderDAO {
 
 		System.out.println("Enter user phone number: ");
 		String userPhoneNum = scanner.nextLine(); // need to do checking if user exist or not
-		
+
 		int x = 0;
-		
-		for(User user: userList) {
-			if(userPhoneNum.equals(user.getPhoneNum())) {
+
+		for (User user : userList) {
+			if (userPhoneNum.equals(user.getPhoneNum())) {
 				x = 1;
 			}
 		}
-		
+
 		if (x == 0) {
 			System.out.println("User not found. Please add new user to the system.");
 			return;
@@ -190,24 +190,25 @@ public class OrderDAO {
 			while (reader.readLine() != null) {
 				lines++;
 			}
-				
-			reader.close();		
-			lines += 10001;		
-			
+
+			reader.close();
+			lines += 10001;
+
 			User user = userDAO.getUserByPhoneNum(userPhoneNum);
 			DeliveryStaff staff = deliveryStaffDAO.chooseStaff();
-			
-			Order newOrder = new Order(lines, sDate1, Paddress, Daddress, 
-					sameDayDelivery, insurance, Pcode, Dcode, item, weight,
-					distance, user, staff);
-			
+
+			Order newOrder = new Order(lines, sDate1, Paddress, Daddress, sameDayDelivery, insurance, Pcode, Dcode,
+					item, weight, distance, user, staff);
+
 			String append = newOrder.toString() + "\n";
 			BufferedWriter writer = new BufferedWriter(new FileWriter("Order.txt", true));
 			// ObjectOutputStream o = new ObjectOutputStream(f);
 			// Write objects to file
 			// o.writeObject(users);
 
-			writer.append(append);
+			if (writer.append(append) != null) {
+				System.out.println("Order had succefully recorded.");
+			}
 
 			writer.close();
 		} catch (FileNotFoundException e) {
@@ -221,15 +222,15 @@ public class OrderDAO {
 	}
 
 	public void readOrderList() {
-		try {							
+		try {
 			BufferedReader reader;
 			reader = new BufferedReader(new FileReader("Order.txt"));
-			
+
 			String read;
-			
+
 			while ((read = reader.readLine()) != null) {
 				String[] collectData = read.split(",");
-				
+
 				int id = Integer.parseInt(collectData[0].trim());
 				String date = collectData[1].trim();
 				String pAddress = collectData[2].trim();
@@ -241,21 +242,19 @@ public class OrderDAO {
 				String item = collectData[8].trim();
 				double weight = Double.parseDouble(collectData[9].trim());
 				double distance = Double.parseDouble(collectData[10].trim());
-				
+
 				String userNum = collectData[11].trim();
-				User user = userDAO.getUserByPhoneNum(userNum);		
-				
+				User user = userDAO.getUserByPhoneNum(userNum);
+
 				String staffNum = collectData[12].trim();
-				
-			
-	        	Order obj = new Order(id, date, pAddress, dAddress, 
-	        			sameDay, insurance, pCode, dCode, item, weight, 
-	        			distance, user, deliveryStaffDAO.getStaffByPhoneNum(staffNum));
-	        	orders.add(obj);
+
+				Order obj = new Order(id, date, pAddress, dAddress, sameDay, insurance, pCode, dCode, item, weight,
+						distance, user, deliveryStaffDAO.getStaffByPhoneNum(staffNum));
+				orders.add(obj);
 			}
-				
+
 			reader.close();
-			
+
 		} catch (FileNotFoundException e) {
 			System.out.println("File not found");
 		} catch (IOException e) {
@@ -263,22 +262,17 @@ public class OrderDAO {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-//		for(Order order: orders) {
-//			System.out.println(order.toString());
-//			}
-		}
-	
-	
+	}
+
 	public Order getOrder(int id) {
 		readOrderList();
-		
-		for(Order order: orders) {
+
+		for (Order order : orders) {
 			if (id == order.getOrderID()) {
 				return order;
 			}
 		}
-		return null;	
+		return null;
 	}
 
 }

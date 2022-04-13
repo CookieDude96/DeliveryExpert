@@ -8,34 +8,30 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-
 public class DeliveryStaffDAO {
 	Scanner scanner = new Scanner(System.in);
-	List <DeliveryStaff> staffList = new ArrayList<>();
-	
+	List<DeliveryStaff> staffList = new ArrayList<>();
+
 	public void readStaffList() {
-			
-		try {				
+
+		try {
 			BufferedReader reader;
 			reader = new BufferedReader(new FileReader("DeliveryStaff.txt"));
-			
+
 			String read;
-			
+
 			while ((read = reader.readLine()) != null) {
 				String[] collectData = read.split(",");
-				
+
 				String name = collectData[0].trim();
 				String num = collectData[1].trim();
 
-			
 				DeliveryStaff obj = new DeliveryStaff(name, num);
 				staffList.add(obj);
 			}
-				
+
 			reader.close();
-			
-			
-			
+
 		} catch (FileNotFoundException e) {
 			System.out.println("File not found");
 		} catch (IOException e) {
@@ -45,38 +41,38 @@ public class DeliveryStaffDAO {
 			e.printStackTrace();
 		}
 	}
-	
-	public List<DeliveryStaff> getStaffList(){	
+
+	public List<DeliveryStaff> getStaffList() {
 		readStaffList();
-		
-		return staffList;	
-	}	
-	
+
+		return staffList;
+	}
+
 	public DeliveryStaff chooseStaff() {
 		readStaffList();
-		
+
 		int i = 1;
 		System.out.println("Delivery Staff");
 		System.out.println("==============");
-		
-		for(DeliveryStaff staff: staffList) {
+
+		for (DeliveryStaff staff : staffList) {
 			System.out.println(i + ". " + staff.toString());
 			i++;
 		}
-		
+
 		System.out.print("Choose delivery staff: ");
 		int choice = scanner.nextInt();
 		choice = choice - 1;
-			
+
 		return staffList.get(choice);
-		}
-	
+	}
+
 	public DeliveryStaff getStaffByPhoneNum(String phoneNum) {
 		readStaffList();
-		
-		for(DeliveryStaff staff: staffList) {
-			//System.out.println(staff.toString());
-			
+
+		for (DeliveryStaff staff : staffList) {
+			// System.out.println(staff.toString());
+
 			if (phoneNum.equals(staff.getDeliveryStaffNum())) {
 				return staff;
 			}

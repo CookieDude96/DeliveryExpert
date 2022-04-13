@@ -1,6 +1,5 @@
 package my.com.delivery.menu;
 
-
 import java.util.Scanner;
 
 import my.com.delivery.user.User;
@@ -14,13 +13,12 @@ import my.com.delivery.order.OrderDAO;
 
 public class Menu {
 	public static void printMenu() {
-		System.out.println("Welcome to DeliveryExpert system");
+		System.out.println("\nWelcome to DeliveryExpert system");
 		System.out.println("===============MENU===============");
 		System.out.println("1. Add user");
-		System.out.println("2. Menu");
-		System.out.println("3. View users");
-		System.out.println("4. New Delivery Order");
-		System.out.println("5. Delivery Note");
+		System.out.println("2. View users");
+		System.out.println("3. New Delivery Order");
+		System.out.println("4. Delivery Note");
 		System.out.println("0. Exit");
 	}
 
@@ -29,13 +27,14 @@ public class Menu {
 		OrderDAO orderDAO = new OrderDAO();
 		UserDAO userDAO = new UserDAO();
 		
-		printMenu();
+		
 		int choice = 0;
 
 		/* 123@gmail.com 012333 */
 
 		do {
-			System.out.print("\n\nEnter your choice: ");
+			printMenu();
+			System.out.print("\nEnter your choice: ");
 			choice = Integer.parseInt(scanner.nextLine());
 
 			switch (choice) {
@@ -69,27 +68,35 @@ public class Menu {
 				if (userDAO.addUser(user)) {
 					System.out.println("User has been added successfully");
 				}
+				
+				System.out.println("Press ENTER to go back to menu.");
+				scanner.nextLine();
+				
 				break;
+
 			case 2:
-				printMenu();
+				userDAO.showAllUsers();
+				
+				System.out.println("Press ENTER to go back to menu.");
+				scanner.nextLine();
+				
 				break;
 
 			case 3:
-				userDAO.showAllUsers();
-				break;
-			case 4:
-				
 				orderDAO.newOrder();
-
+				
+				System.out.println("Press ENTER to go back to menu.");
+				scanner.nextLine();
+				
 				break;
-			case 5:
+
+			case 4:
 				System.out.print("Enter Order ID: ");
 				int orderID = Integer.parseInt(scanner.nextLine());
-							
-				
+
 				DisplayInfo display = new DisplayInfo();
 
-				System.out.println("==========Delivery Note==========");
+				System.out.println("\n==========Delivery Note==========");
 				System.out.println("1. Print Delivery Note");
 				System.out.println("2. Email Delivey Note");
 				System.out.println("3. Back");
@@ -111,13 +118,11 @@ public class Menu {
 				default:
 					break;
 				}
-
-				break;
 				
-//			case 6:
-//				
-//				orderDAO.readOrderList();
-//				break;
+				System.out.println("Press ENTER to go back to menu.");
+				scanner.nextLine();
+				
+				break;
 
 			case 0:
 				System.out.println("Exiting the application...");

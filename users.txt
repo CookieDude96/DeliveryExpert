@@ -7,3 +7,6 @@ Claire, Yen@gmail.com, 0103636271, Penang
 Wsq, Wsq@gmail.com, 0178388451, Sban
 test, test@test.my, 0123456789, asdf
 koonqi, koonqi@gmail.com, 0167222654, puchong
+Kean, kean@gmail.com, 0145789354, cheras
+apple, banana@gmail.com, 0125478936, pineapple
+bee, bee@bee.my, 01257455744, setapak

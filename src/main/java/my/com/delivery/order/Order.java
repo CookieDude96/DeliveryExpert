@@ -96,16 +96,13 @@ public class Order {
     public DeliveryStaff getStaff() {
     	return staff;
     }
-    
-
 
     public String toString() {     
     	return orderID + ", " + sDate1 + ", " +  Paddress + ", " 
     			+ Daddress + ", " + sameDayDelivery + ", " 
     			+ insurance + ", " + Pcode + ", " + Dcode + ", " 
     			+ item + ", " + weight + ", " + distance + ", " 
-    			+ user.getPhoneNum() + ", "+ staff.getDeliveryStaffNum();
-
+				+ user.getPhoneNum() + ", " + staff.getDeliveryStaffNum();
     }
 
 }
