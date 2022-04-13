@@ -49,8 +49,16 @@ public class OrderDAO {
 		System.out.println("Please enter the delivery date (dd/MM/yyyy): ");
 		String sDate1 = scanner.nextLine();
 
-		try {
+		try {			
 			Date date1 = new SimpleDateFormat("dd/MM/yyyy").parse(sDate1);
+			Date today = new Date();
+			
+			if (date1.compareTo(today) < 0) {
+				System.out.println("Delivery Date must be after today.");
+				
+				return;
+			}
+			
 		} catch (Exception e) {
 
 		}
