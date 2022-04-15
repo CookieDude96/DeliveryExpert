@@ -21,7 +21,7 @@ public class DeliveryStaffDAO {
 			String read;
 
 			while ((read = reader.readLine()) != null) {
-				String[] collectData = read.split(",");
+				String[] collectData = read.split(";");
 
 				String name = collectData[0].trim();
 				String num = collectData[1].trim();

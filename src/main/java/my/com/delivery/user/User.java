@@ -18,9 +18,6 @@ public class User implements Serializable {
 		this.address = address;
 	}
 
-	public User() {
-
-	}
 
 	public String getName() {
 		return name;
@@ -45,7 +42,7 @@ public class User implements Serializable {
 	// source > toString
 	@Override
 	public String toString() {
-		return name + ", " + email + ", " + phoneNum + ", " + address;
+		return name + ";" + email + ";" + phoneNum + ";" + address;
 	}
 
 }

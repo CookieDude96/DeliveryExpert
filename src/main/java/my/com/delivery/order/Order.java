@@ -18,9 +18,9 @@ public class Order {
 	private User user;
 	private DeliveryStaff staff;
 
-    public Order(int orderID, String sDate1, String Paddress, 
+    public Order(int orderID, String sDate1, String Paddress,
     		String Daddress, boolean sameDayDelivery, boolean insurance, int Pcode,
-            int Dcode, String item, double weight, double distance, User user, 
+            int Dcode, String item, double weight, double distance, User user,
             DeliveryStaff staff) {
     	
     	this.orderID = orderID;
@@ -83,7 +83,7 @@ public class Order {
     }
 
     public double getfinal_total() {
-        Calculation calc = new Calculation(item, distance, weight, sameDayDelivery, insurance);
+        Calculation calc = new Calculation(item,distance,weight,sameDayDelivery,insurance);
         double finalCharge = calc.getCharge();
 
         return finalCharge;
@@ -98,11 +98,11 @@ public class Order {
     }
 
     public String toString() {     
-    	return orderID + ", " + sDate1 + ", " +  Paddress + ", " 
-    			+ Daddress + ", " + sameDayDelivery + ", " 
-    			+ insurance + ", " + Pcode + ", " + Dcode + ", " 
-    			+ item + ", " + weight + ", " + distance + ", " 
-				+ user.getPhoneNum() + ", " + staff.getDeliveryStaffNum();
+    	return orderID + ";" + sDate1 + ";" +  Paddress + ";" 
+    			+ Daddress + ";" + sameDayDelivery + ";" 
+    			+ insurance + ";" + Pcode + ";" + Dcode + ";" 
+    			+ item + ";" + weight + ";" + distance + ";" 
+				+ user.getPhoneNum() + ";" + staff.getDeliveryStaffNum();
     }
 
 }

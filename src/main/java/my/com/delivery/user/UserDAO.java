@@ -97,7 +97,7 @@ public class UserDAO {
 				String line;
 				while ((line = br.readLine()) != null) {
 					// resultStringBuilder.append(line).append("\n");
-					String[] collectData = line.split(",");
+					String[] collectData = line.split(";");
 					User obj = new User(collectData[0].trim(), collectData[1].trim(), collectData[2].trim(),
 							collectData[3].trim());
 					userList.add(obj);

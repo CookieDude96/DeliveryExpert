@@ -1,12 +1,12 @@
-Claire, Claire@gmail.com, 0182017978, Sban
-Wer, Wer@gmail.com, 012345678, KL
-Siow, Siow@gmail.com, 012234123, Melaka
-Waq, Waq@gmail.com, 0134567888, KL
-Claire, Clairy@gmail.com, 0132345677, Selangor
-Claire, Yen@gmail.com, 0103636271, Penang
-Wsq, Wsq@gmail.com, 0178388451, Sban
-test, test@test.my, 0123456789, asdf
-koonqi, koonqi@gmail.com, 0167222654, puchong
-Kean, kean@gmail.com, 0145789354, cheras
-apple, banana@gmail.com, 0125478936, pineapple
-bee, bee@bee.my, 01257455744, setapak
+Claire;Claire@gmail.com;0182017978;Sban
+Wer;Wer@gmail.com;012345678;KL
+Siow;Siow@gmail.com;012234123;Melaka
+Waq;Waq@gmail.com;0134567888;KL
+Claire;Clairy@gmail.com;0132345677;Selangor
+Claire;Yen@gmail.com;0103636271;Penang
+Wsq;Wsq@gmail.com;0178388451;Sban
+test;test@test.my;0123456789;asdf
+koonqi;koonqi@gmail.com;0167222654;puchong
+Kean;kean@gmail.com;0145789354;cheras
+apple;banana@gmail.com;0125478936;pineapple
+bee;bee@bee.my;01257455744;setapak

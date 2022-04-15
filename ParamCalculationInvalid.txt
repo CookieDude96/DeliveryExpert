@@ -1,0 +1,12 @@
+document;-10;500;true;true
+document;50;-50;true;true
+document;a;500;true;true
+document;50;a;true;true
+document;50;500;a;true
+document;50;500;true;a
+;50;500;true;true
+document;;500;true;true
+document;50;;true;true
+document;50;500;;true
+document;50;500;true;;
+item;50;500;true;true
