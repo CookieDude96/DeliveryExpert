@@ -4,8 +4,8 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
+import my.com.delivery.deliveryNote.DeliveryNoteTest;
 import my.com.delivery.order.CalculationTest;
-import my.com.delivery.order.DeliveryNoteTest;
 import my.com.delivery.order.OrderTest;
 
 @RunWith(value = Suite.class)

@@ -21,7 +21,7 @@ import static org.mockito.Mockito.*;
 import org.mockito.InOrder;
 
 @RunWith(JUnitParamsRunner.class)
-public class OrderTest {
+public class OrderTest { 
 
 	OrderController oc = new OrderController();
 	Order order;

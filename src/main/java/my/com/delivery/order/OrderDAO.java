@@ -26,13 +26,14 @@ public class OrderDAO {
 	List<Order> orders = new ArrayList<>();
 
 	public void newOrder() {
+		System.out.println();
 		System.out.println("***********************************");
 		System.out.println("           Delivery Expert         ");
 		System.out.println("***********************************");
 
 		System.out.println("Enter user phone number: ");
 		String userPhoneNum = scanner.nextLine(); // need to do checking if user exist or not
-
+		
 		int x = 0;
 
 		for (User user : userList) {
@@ -127,7 +128,7 @@ public class OrderDAO {
 
 	public void readOrderList() {
 		try {
-			BufferedReader reader;
+			BufferedReader reader; 
 			reader = new BufferedReader(new FileReader("Order.txt"));
 
 			String read;
