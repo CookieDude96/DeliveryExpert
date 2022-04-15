@@ -96,12 +96,15 @@ public class OrderDAO {
 			lines += 10001;
 
 			User user = userDAO.getUserByPhoneNum(userPhoneNum);
-			DeliveryStaff staff = deliveryStaffDAO.chooseStaff();
+			deliveryStaffDAO.showStaff();
+			System.out.print("Choose delivery staff: ");
+			int choice = scanner.nextInt();
+			DeliveryStaff staff = deliveryStaffDAO.chooseStaff(choice);
 
 			Order newOrder = new Order(lines, sDate, Paddress, Daddress, sameDayDelivery, insurance, Pcode, Dcode,
 					item, weight, distance, user, staff);
 
-			String append = newOrder.toString() + "\n";
+			String append = newOrder.toString() + "\n"; 
 			BufferedWriter writer = new BufferedWriter(new FileWriter("Order.txt", true));
 			// ObjectOutputStream o = new ObjectOutputStream(f);
 			// Write objects to file

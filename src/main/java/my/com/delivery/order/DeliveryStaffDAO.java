@@ -48,7 +48,7 @@ public class DeliveryStaffDAO {
 		return staffList;
 	}
 
-	public DeliveryStaff chooseStaff() {
+	public void showStaff() {
 		readStaffList();
 
 		int i = 1;
@@ -59,12 +59,8 @@ public class DeliveryStaffDAO {
 			System.out.println(i + ". " + staff.toString());
 			i++;
 		}
-
-		System.out.print("Choose delivery staff: ");
-		int choice = scanner.nextInt();
-		choice = choice - 1;
-
-		return staffList.get(choice);
+		
+		
 	}
 
 	public DeliveryStaff getStaffByPhoneNum(String phoneNum) {
@@ -77,6 +73,17 @@ public class DeliveryStaffDAO {
 				return staff;
 			}
 		}
+		return null;
+	}
+	
+	public DeliveryStaff chooseStaff(int choice) {
+		
+		if (choice > 0) {
+			if (choice < staffList.size()) {
+				return staffList.get(choice);
+			}			
+		}
+		
 		return null;
 	}
 }

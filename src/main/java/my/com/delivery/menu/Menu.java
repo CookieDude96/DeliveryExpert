@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import my.com.delivery.user.User;
 import my.com.delivery.user.UserDAO;
-import my.com.delivery.deliveryNote.DisplayInfo;
+import my.com.delivery.deliveryNote.DeliveryNote;
 import my.com.delivery.order.OrderDAO;
 
 //phoneNum not exceed 11 digit
@@ -52,7 +52,7 @@ public class Menu {
 
 				System.out.println("Enter user address - ");
 				String userAddress = scanner.nextLine();
-				String userPhoneNum = "";
+				String userPhoneNum = ""; 
 				do {
 					if (!userPhoneNum.equals("") && (userPhoneNum.length() < 10 || userPhoneNum.length() > 11)) {
 						System.out.println("\nPhone number should be 10/11 digits only\n");
@@ -94,7 +94,7 @@ public class Menu {
 				System.out.print("Enter Order ID: ");
 				int orderID = Integer.parseInt(scanner.nextLine());
 
-				DisplayInfo display = new DisplayInfo();
+				DeliveryNote display = new DeliveryNote();
 
 				System.out.println("\n==========Delivery Note==========");
 				System.out.println("1. Print Delivery Note");
