@@ -4,9 +4,8 @@ import java.util.Scanner;
 
 import my.com.delivery.user.User;
 import my.com.delivery.user.UserDAO;
-import my.com.delivery.deliveryNote.DeliveryNote;
 import my.com.delivery.order.OrderDAO;
-
+import my.com.delivery.deliveryNote.DeliveryNote;
 //phoneNum not exceed 11 digit
 //email must come with @
 //view user

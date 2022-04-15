@@ -31,10 +31,6 @@ public class Calculation {
 					charge = 4.00;
 				else if (distance >= 10 && distance <= 30)
 					charge = 8.00;
-				else if(distance < 0)
-				{
-				throw new IllegalArgumentException("Error. distance cannot be negative");
-				} 
 				else
 					charge = 10.00;
 			} else if (weight > 1000 && weight <= 3000) {
@@ -42,38 +38,22 @@ public class Calculation {
 					charge = 4.00;
 				else if (distance >= 10 && distance <= 30)
 					charge = 8.00;
-				else if(distance < 0)
-				{
-				throw new IllegalArgumentException("Error. distance cannot be negative");
-				} 
 				else
 					charge = 10.00;
 			}
+
 			else if (weight > 3000 && weight <= 5000) {
 				if (distance < 10)
 					charge = 12.00;
 				else if (distance >= 10 && distance <= 30)
 					charge = 18.00;
-				else if(distance < 0)
-				{
-				throw new IllegalArgumentException("Error. distance cannot be negative");
-				} 
 				else
 					charge = 25.00;
-			}
-			else if(weight < 0)
-			{
-				throw new IllegalArgumentException("Error. weight cannot be negative");
-			} 
-			else {
+			} else {
 				if (distance < 10)
 					charge = 25.00;
 				else if (distance >= 10 && distance <= 30)
 					charge = 30.00;
-				else if(distance < 0)
-				{
-				throw new IllegalArgumentException("Error. distance cannot be negative");
-				} 
 				else
 					charge = 35.00;
 			}
@@ -83,10 +63,6 @@ public class Calculation {
 					charge = 5.00;
 				else if (distance >= 10 && distance <= 30)
 					charge = 8.00;
-				else if(distance < 0)
-				{
-				throw new IllegalArgumentException("Error. distance cannot be negative");
-				} 
 				else
 					charge = 10.00;
 			} else if (weight > 1000 && weight <= 2000) {
@@ -94,10 +70,6 @@ public class Calculation {
 					charge = 15.00;
 				else if (distance >= 10 && distance <= 30)
 					charge = 18.00;
-				else if(distance < 0)
-				{
-				throw new IllegalArgumentException("Error. distance cannot be negative");
-				} 
 				else
 					charge = 25.00;
 			} else if (weight > 2000 && weight <= 3000) {
@@ -105,10 +77,6 @@ public class Calculation {
 					charge = 23.00;
 				else if (distance >= 10 && distance <= 30)
 					charge = 28.00;
-				else if(distance < 0)
-				{
-				throw new IllegalArgumentException("Error. distance cannot be negative");
-				} 
 				else
 					charge = 35.00;
 			} else if (weight > 3000 && weight <= 4000) {
@@ -116,34 +84,18 @@ public class Calculation {
 					charge = 35.00;
 				else if (distance >= 10 && distance <= 30)
 					charge = 40.00;
-				else if(distance < 0)
-				{
-				throw new IllegalArgumentException("Error. distance cannot be negative");
-				} 
 				else
 					charge = 50.00;
-			} else if(weight < 0)
-			{
-				throw new IllegalArgumentException("Error. weight cannot be negative");
 			} else {
 				if (distance < 10)
 					charge = 45.00;
 				else if (distance >= 10 && distance <= 30)
 					charge = 50.00;
-				else if(distance < 0)
-				{
-				throw new IllegalArgumentException("Error. distance cannot be negative");
-				} 
 				else
 					charge = 60.00;
 			}
 		}
-		else if(item_type.equals(null)){
-			throw new IllegalArgumentException("null item_type");
-		}
-		else
-			throw new IllegalArgumentException("Invalid item_type!");
-			
+
 		if (this.sameDayDelivery) {
 			charge += 10.00;
 		}
